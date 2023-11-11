@@ -8,7 +8,7 @@ import '../main.css';
 
 const Home = () => {
   return (
-    <div className="app">
+    <div >
     <Header />
     <main>
       <Hero />

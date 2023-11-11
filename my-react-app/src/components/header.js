@@ -2,6 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import argentBankLogo from "../img/argentBankLogo.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Header = () => {
   return (
     <nav className="main-nav">
@@ -15,7 +16,7 @@ const Header = () => {
       </Link>
       <div>
         <Link to="/signin" className="main-nav-item">
-          <i className="fa fa-user-circle"></i>
+        <FontAwesomeIcon icon="circle-user" />
           Sign In
         </Link>
       </div>

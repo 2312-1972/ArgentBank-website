@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getUser } from '../actions/user.action';
+import {Link} from 'react-router-dom';
 
 const User = ({ isAuthenticated, user, getUser }) => {
   useEffect(() => {
@@ -16,7 +17,9 @@ const User = ({ isAuthenticated, user, getUser }) => {
         <div>
           <div className="header">
             <h1>Welcome back<br />{user ? `${user.firstName} ${user.lastName}` : 'User'}!</h1>
+            <Link to="/editUser">
             <button className="edit-button">Edit Name</button>
+            </Link>
           </div>
           <h2 className="sr-only">Accounts</h2>
           <section className="account">

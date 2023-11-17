@@ -6,7 +6,7 @@ export const SIGN_IN_FAILURE = "SIGN_IN_FAILURE";
 export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
 export const GET_USER_FAILURE = "GET_USER_FAILURE";
 export const STORE_TOKEN = "STORE_TOKEN";
-
+export const SIGN_OUT_SUCCESS = "SIGN_OUT_SUCCESS"; // Ajoutez une action de déconnexion réussie
 export const postUser = (userData) => {
   return async (dispatch) => {
     try {
@@ -61,3 +61,18 @@ export const getUser = () => {
     }
   };
 };
+
+
+
+export const signOut = () => {
+  return (dispatch) => {
+    // Réinitialisez l'état de l'utilisateur et du token
+    dispatch({ type: SIGN_OUT_SUCCESS });
+
+    // Ajoutez d'autres actions de nettoyage si nécessaire
+
+    // Exemple: réinitialisez les données de l'utilisateur dans le store
+    dispatch({ type: GET_USER_FAILURE, payload: { error: null } });
+  };
+};
+

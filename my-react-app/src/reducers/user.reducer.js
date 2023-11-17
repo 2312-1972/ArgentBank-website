@@ -1,6 +1,6 @@
 // user.reducer.js
 
-import { SIGN_IN_SUCCESS, SIGN_IN_FAILURE, GET_USER_SUCCESS, GET_USER_FAILURE, STORE_TOKEN } from '../actions/user.action';
+import { SIGN_IN_SUCCESS, SIGN_IN_FAILURE, GET_USER_SUCCESS, GET_USER_FAILURE, STORE_TOKEN, SIGN_OUT_SUCCESS } from '../actions/user.action';
 
 const initialState = {
   isAuthenticated: false,
@@ -43,6 +43,14 @@ export default function userReducer(state = initialState, action) {
       return {
         ...state,
         token: action.payload.token,
+      };
+      case SIGN_OUT_SUCCESS:
+      return {
+        ...state,
+        isAuthenticated: false,
+        user: null,
+        token: null,
+        error: null,
       };
     default:
       return state;

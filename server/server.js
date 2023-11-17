@@ -10,10 +10,11 @@ const PORT = process.env.PORT || 3001;
 
 dotEnv.config();
 
+
 // Connexion à la base de données
 const dbConnection = async () => {
   try {
-    await mongoose.connect(`mongodb://localhost:3001/argentBankDB`, {
+    await mongoose.connect(`mongodb://localhost:27017/argentBankDB`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -23,7 +24,7 @@ const dbConnection = async () => {
     throw new Error(error);
   }
 };
-
+dbConnection(); 
 // Handle CORS issues
 app.use(cors());
 

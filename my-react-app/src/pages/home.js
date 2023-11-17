@@ -8,6 +8,7 @@ import '../main.css';
 const Home = () => {
   return (
     <div >
+     
     <main>
       <Hero />
       <Features />

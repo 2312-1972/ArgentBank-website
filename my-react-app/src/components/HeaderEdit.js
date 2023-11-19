@@ -1,30 +1,25 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import argentBankLogo from "../img/argentBankLogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
-import { selectIsConnected, selectUserFirstName } from "../store/selectors";
-import { useDispatch } from 'react-redux';
-import { signOut } from '../actions/user.action';
+import { selectIsConnected, selectUserFirstName, selectUserLastname } from "../store/selectors";
+import { useDispatch } from "react-redux";
+import { signOut } from "../actions/user.action";
 
 library.add(fas);
 
-const Header = () => {
+const HeaderEdit = () => {
   const isConnected = useSelector(selectIsConnected);
   const userFirstName = useSelector(selectUserFirstName);
+  const userLastName = useSelector( selectUserLastname );
   const dispatch = useDispatch();
-  const location = useLocation(); // Utilisation du hook useLocation pour obtenir la route actuelle
 
   const handleSignOut = () => {
     dispatch(signOut());
   };
-
-  // Vérifie si la route actuelle est "/editUser"
-  if (location.pathname === '/editUser') {
-    return null; // Ne pas afficher le Header sur la page EditUser
-  }
 
   return (
     <nav className="main-nav">
@@ -39,19 +34,33 @@ const Header = () => {
       <div>
         {isConnected ? (
           <>
+            
             <Link to="/user" className="main-nav-item">
-              <FontAwesomeIcon icon={["fas", "user-circle"]} />
-              {userFirstName}
+            <span style={{ fontSize: "16px", color: "#00bc77"}}>
+            {`${userFirstName} - ${userLastName}`}      </span>
+            &nbsp;&nbsp;
+              <FontAwesomeIcon
+                icon={["fas", "user-circle"]}
+                style={{ fontSize: "30px", color: " #00bc77" }}
+              />
             </Link>
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <Link to="/" className="main-nav-item" onClick={handleSignOut}>
-              <FontAwesomeIcon icon={["fas", "sign-out-alt"]} />
-              Sign Out
+              <FontAwesomeIcon
+                icon="fa-solid fa-gear"
+                style={{ fontSize: "23px", color: " #00bc77", paddingBottom: "4px"}}
+              />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <FontAwesomeIcon
+                icon={["fas", "power-off"]}
+                style={{ fontSize: "23px", color: " #00bc77", paddingBottom: "4px" }}
+              />
             </Link>
           </>
         ) : (
           <Link to="/signin" className="main-nav-item">
             <FontAwesomeIcon icon={["fas", "circle-user"]} />
-            Sign In
+            &nbsp; Sign In
           </Link>
         )}
       </div>
@@ -59,4 +68,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderEdit;

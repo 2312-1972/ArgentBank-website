@@ -167,6 +167,25 @@ body {
   color: #fff;
 }
 
+.save-cancel-button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  border-color: #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  border-radius:5px;
+}
+.save-and-cancel{
+  display: flex;
+  gap:10px;
+  width: 360px;
+}
+
+
 .sign-in-content {
   box-sizing: border-box;
   background-color: white;
@@ -286,7 +305,12 @@ font-weight: normal;
   flex: 1;
 }
 
-
+.form-user{
+  display: flex;
+  margin: 10px;
+  width: 350px;
+  padding-right: 50px;
+}
 .edit-button {
   border-color: #00bc77;
   background-color: #00bc77;

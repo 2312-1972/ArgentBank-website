@@ -1,7 +1,7 @@
 // store.js
 
 import { configureStore } from '@reduxjs/toolkit';
-import rootReducer from '../reducers'; // Assurez-vous de fournir le bon chemin vers votre fichier rootReducer
+import rootReducer from '../reducers'; 
 import thunk from 'redux-thunk';
 
 const store = configureStore({

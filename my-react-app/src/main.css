@@ -230,15 +230,40 @@ body {
   text-align: left;
   margin-bottom: 2rem;
 }
-
+.account-transaction{
+  display: flex;
+   justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  background-color: black;
+  width: 80%;
+  margin: 0 auto;
+  flex-direction: row;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  text-align: left;
+  margin-bottom: 2rem;
+}
 .account-amount {
   margin: 0;
   font-size: 2.5rem;
   font-weight: bold;
 }
 
+.account-white{
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
 .account-amount-description {
   margin: 0;
+}
+
+.account-white-descritption{
+  margin: 0;
+  color: #fff;
 }
 
 .account-title {
@@ -248,10 +273,19 @@ body {
   font-weight: normal;
 }
 
+.account-title-user{
+color: #fff;
+margin: 0;
+padding: 0;
+font-size: 1rem;
+font-weight: normal;
+}
+
 .account-content-wrapper {
   width: 100%;
   flex: 1;
 }
+
 
 .edit-button {
   border-color: #00bc77;

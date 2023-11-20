@@ -18,6 +18,7 @@ function App  ()  {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/user" element={<User />} />
         <Route path="/editUser" element={<EditUser />} />
+        <Route path="/checkTransac" element={<checkTransaction />} />
       </Routes>
       <Footer />
     </Router>

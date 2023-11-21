@@ -5,7 +5,8 @@ import User from './pages/user';
 import SignIn from './pages/signIn';
 import Header from './components/header';
 import Footer from './components/footer';
-import EditUser from './pages/editUser'
+import EditUser from './pages/editUser';
+import CheckTransaction from './pages/checkTransac';
 import './main.css';
 
 function App  ()  {
@@ -18,7 +19,7 @@ function App  ()  {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/user" element={<User />} />
         <Route path="/editUser" element={<EditUser />} />
-        <Route path="/checkTransac" element={<checkTransaction />} />
+        <Route path="/CheckTransac" element={<CheckTransaction />} />
       </Routes>
       <Footer />
     </Router>

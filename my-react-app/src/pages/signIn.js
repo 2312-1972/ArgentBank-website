@@ -30,11 +30,6 @@ const SignIn = ({ postUser }) => {
       password: 'password456',
     };
 
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('ValidUser1:', validUser1);
-    console.log('ValidUser2:', validUser2);
-
     if ((email === validUser1.email && password === validUser1.password) || (email === validUser2.email && password === validUser2.password)) {
       postUser({ email, password });
       navigate('/user'); // Utilisation de navigate pour la redirection

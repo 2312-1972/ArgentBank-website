@@ -3,7 +3,7 @@ import HeaderEdit from "../components/HeaderEdit";
 
 
 
-const checkTransaction = () => {
+const CheckTransaction = () => {
     return (
       <div >
        <HeaderEdit isEditPage={true} />
@@ -13,4 +13,4 @@ const checkTransaction = () => {
     );
   };
   
-  export default checkTransaction;
+  export default CheckTransaction;

@@ -16,7 +16,11 @@ const CollapseTransac = () => {
     <div>
       <section
         className={`account-transaction ${isCollapsed ? "collapsed" : ""}`}
-        style={{ background: "#00bc77", padding: "1rem", marginBottom: isCollapsed ? "0" : "1rem" }}
+        style={{
+          background: "#00bc77",
+          padding: "1rem",
+          marginBottom: isCollapsed ? "0" : "1rem",
+        }}
       >
         <div
           className="account-content-wrapper"
@@ -36,10 +40,15 @@ const CollapseTransac = () => {
           </div>
           <div>
             {" "}
-            <h3 className="account-title-user" style={{ paddingLeft: '25px' }}>$298.00 </h3>
+            <h3 className="account-title-user" style={{ paddingLeft: "25px" }}>
+              $298.00{" "}
+            </h3>
           </div>
         </div>
-        <div className="account-content-wrapper cta" onClick={handleToggleCollapse}>
+        <div
+          className="account-content-wrapper cta"
+          onClick={handleToggleCollapse}
+        >
           <FontAwesomeIcon
             icon={isCollapsed ? "chevron-up" : "chevron-down"}
             style={{ color: "white", fontSize: "20px" }}
@@ -48,18 +57,24 @@ const CollapseTransac = () => {
       </section>
 
       {isCollapsed && (
-        <div   className="account-transaction" style={{ background: "#00bc77", padding: "1rem"}}>
+        <div
+          className="account-transaction"
+          style={{ background: "#00bc77", padding: "1rem" }}
+        >
           {/* on ajoute  ici les  les informations */}
-          <div style={{ display: "flex",  marginBottom: "1rem" }}>
-            <div >
-              <h3 className="account-title-user" >Transaction type </h3>
+          <div style={{ display: "flex", marginBottom: "1rem" }}>
+            <div>
+              <h3 className="account-title-user">Transaction type </h3>
             </div>
-            <div >
-            <h3 className="account-title-user" style={{marginLeft:'150px'}}>Electronic</h3>
+            <div>
+              <h3
+                className="account-title-user"
+                style={{ marginLeft: "150px" }}
+              >
+                Electronic
+              </h3>
             </div>
-           </div>
-         
-          
+          </div>
         </div>
       )}
     </div>

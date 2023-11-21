@@ -3,12 +3,6 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-// import { useSelector } from "react-redux";
-// import {
-//   selectIsConnected,
-//   selectUserFirstName,
-//   selectUserLastname,
-// } from "../store/selectors";
 
 library.add(fas);
 const AccountUser = () => {

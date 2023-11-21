@@ -1,13 +1,13 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom"; 
+import { Link, useLocation } from "react-router-dom";
 import argentBankLogo from "../img/argentBankLogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 import { selectIsConnected, selectUserFirstName } from "../store/selectors";
-import { useDispatch } from 'react-redux';
-import { signOut } from '../actions/user.action';
+import { useDispatch } from "react-redux";
+import { signOut } from "../actions/user.action";
 
 library.add(fas);
 
@@ -22,7 +22,10 @@ const Header = () => {
   };
 
   // Vérifie si la route actuelle est "/editUser"
-  if (location.pathname === '/editUser') {
+  if (
+    location.pathname === "/editUser" ||
+    location.pathname === "/checkTransac"
+  ) {
     return null; // Ne pas afficher le Header sur la page EditUser
   }
 

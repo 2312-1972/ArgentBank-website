@@ -1,5 +1,5 @@
 import React from "react";
-import FormEdit from "../components/userForm/userFormEdit";
+import FormEdit from "../components/userFormEdit";
 import HeaderEdit from "../components/HeaderEdit";
 import AccountUser from "../components/transaction"
 

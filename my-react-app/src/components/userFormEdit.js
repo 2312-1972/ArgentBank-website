@@ -1,7 +1,17 @@
 // FormEdit.js
 import React from "react";
+import { useSelector } from "react-redux";
+import {
+  selectUserFirstName,
+  selectUserLastname,
+  selectUser,
+} from "../store/selectors";
 
-const FormEdit = ({ userName }) => {
+const FormEdit = () => {
+  const userName = useSelector(selectUser);
+  const firstName = useSelector(selectUserFirstName);
+  const lastName = useSelector(selectUserLastname);
+
   return (
     <div>
       <h1>Edit user info </h1>
@@ -18,35 +28,34 @@ const FormEdit = ({ userName }) => {
                 border: "1px solid #999",
                 padding: "5px",
               }}
-              
             />
           </div>
           <div className="form-user">
             <label style={{ marginTop: "7px" }}>First name :</label>
             <input
               type="text"
-              value={userName}
+              value={firstName}
               style={{
                 borderRadius: "5px",
-                backgroundColor: '#f2f2f2',
+                backgroundColor: "#f2f2f2",
                 border: "1px solid #999",
                 padding: "5px",
               }}
-              readOnly 
+              readOnly
             />
           </div>
           <div className="form-user">
             <label style={{ marginTop: "7px" }}>Last name :</label>
             <input
               type="text"
-              value={userName}
+              value={lastName}
               style={{
                 borderRadius: "5px",
-                backgroundColor: '#f2f2f2',
+                backgroundColor: "#f2f2f2",
                 border: "1px solid #999",
                 padding: "5px",
               }}
-              readOnly 
+              readOnly
             />
           </div>
         </div>

@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-
+import CollapseTransac from "../components/CollapseTransac"
 library.add(fas);
 
 const CheckTransaction = () => {
   return (
     <div>
       <HeaderEdit isEditPage={true} />
-      <section className="account-transaction">
+      <section className="account-transaction" style={{marginTop:'40px'}}>
         <div className="account-content-wrapper">
           <h3 className="account-title-user">Argent Bank Checking (x3448)</h3>
           <p className="account-white">$48,098.43</p>
@@ -26,6 +26,7 @@ const CheckTransaction = () => {
           </Link>
         </div>
       </section>
+      
       <section
         className="account-transaction"
         style={{ background: "#ffffff", padding:'0.5rem' }}
@@ -58,7 +59,8 @@ const CheckTransaction = () => {
           />
         </div>
       </section>
-      <section
+      <CollapseTransac/> 
+      {/* <section
         className="account-transaction"
         style={{ background: "#00bc77", padding:'1rem' }}
       >
@@ -217,7 +219,7 @@ const CheckTransaction = () => {
             style={{ color: "white", fontSize: "20px" }}
           />
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

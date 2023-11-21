@@ -18,9 +18,16 @@ const FormEdit = () => {
   const handleSave = () => {
     console.log("Saving username:", editedUserName);
     // Dispatch l'action updateUser avec les nouvelles données
-    dispatch(updateUser({ userName: editedUserName }));
-    // Réinitialise le champ editedUserName si nécessaire
-    setEditedUserName(userName);
+    // Dispatch une action pour mettre à jour le nom d'utilisateur dans le Redux
+    dispatch(updateUser({ userName: editedUserName }))
+      .then(() => {
+        // Mise à jour réussie, ajuste l'état local pour refléter le nom d'utilisateur actuel
+        setEditedUserName(editedUserName);
+        console.log("Username updated successfully");
+      })
+      .catch((error) => {
+        console.error("Failed to update username:", error);
+      });
   };
 
   const handleCancel = () => {
@@ -83,10 +90,18 @@ const FormEdit = () => {
           </div>
         </div>
         <div className="save-and-cancel">
-          <button type="button" onClick={handleSave} className="save-cancel-button">
+          <button
+            type="button"
+            onClick={handleSave}
+            className="save-cancel-button"
+          >
             Save
           </button>
-          <button type="button" onClick={handleCancel} className="save-cancel-button">
+          <button
+            type="button"
+            onClick={handleCancel}
+            className="save-cancel-button"
+          >
             Cancel
           </button>
         </div>

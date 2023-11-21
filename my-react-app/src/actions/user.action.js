@@ -6,7 +6,11 @@ export const SIGN_IN_FAILURE = "SIGN_IN_FAILURE";
 export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
 export const GET_USER_FAILURE = "GET_USER_FAILURE";
 export const STORE_TOKEN = "STORE_TOKEN";
-export const SIGN_OUT_SUCCESS = "SIGN_OUT_SUCCESS"; // Ajoutez une action de déconnexion réussie
+export const SIGN_OUT_SUCCESS = "SIGN_OUT_SUCCESS"; 
+export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
+export const UPDATE_USER_FAILURE = "UPDATE_USER_FAILURE";
+
+
 export const postUser = (userData) => {
   return async (dispatch) => {
     try {
@@ -66,13 +70,42 @@ export const getUser = () => {
 
 export const signOut = () => {
   return (dispatch) => {
-    // Réinitialisez l'état de l'utilisateur et du token
+    // Réinitialise l'état de l'utilisateur et du token
     dispatch({ type: SIGN_OUT_SUCCESS });
 
-    // Ajoutez d'autres actions de nettoyage si nécessaire
+    // Ajoute d'autres actions de nettoyage si nécessaire
 
-    // Exemple: réinitialisez les données de l'utilisateur dans le store
+    //  réinitialise les données de l'utilisateur dans le store
     dispatch({ type: GET_USER_FAILURE, payload: { error: null } });
   };
 };
 
+export const updateUser = (userData) => {
+  return async (dispatch, getState) => {
+    try {
+      const { user } = getState();
+      const token = user.token;
+
+      const res = await axios.put(
+        "http://localhost:3001/api/v1/user/profile",
+        userData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (res.data) {
+        dispatch({ type: UPDATE_USER_SUCCESS, payload: { user: res.data.body } });
+      } else {
+        dispatch({
+          type: UPDATE_USER_FAILURE,
+          payload: { error: "Invalid response format" },
+        });
+      }
+    } catch (error) {
+      dispatch({ type: UPDATE_USER_FAILURE, payload: { error: error.message } });
+    }
+  };
+};

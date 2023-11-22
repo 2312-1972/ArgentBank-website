@@ -23,36 +23,7 @@ const AccountUser = () => {
           </Link>
         </div>
       </section>
-      <section className="account-transaction">
-        <div className="account-content-wrapper">
-          <h3 className="account-title-user">Argent Bank Checking (x3448)</h3>
-          <p className="account-white">$48,098.43</p>
-          <p className="account-white-descritption">Available Balance</p>
-        </div>
-        <div className="account-content-wrapper cta">
-          <Link to="/checkTransac">
-            <FontAwesomeIcon
-              icon="fa-solid fa-chevron-right"
-              style={{ color: "white", fontSize: "50px" }}
-            />
-          </Link>
-        </div>
-      </section>
-      <section className="account-transaction">
-        <div className="account-content-wrapper">
-          <h3 className="account-title-user">Argent Bank Checking (x3448)</h3>
-          <p className="account-white">$48,098.43</p>
-          <p className="account-white-descritption">Available Balance</p>
-        </div>
-        <div className="account-content-wrapper cta">
-          <Link to="/checkTransac">
-            <FontAwesomeIcon
-              icon="fa-solid fa-chevron-right"
-              style={{ color: "white", fontSize: "50px" }}
-            />
-          </Link>
-        </div>
-      </section>
+   
     </div>
   );
 };

@@ -10,6 +10,8 @@ const EditUser = () => {
       <HeaderEdit isEditPage={true} />
       <FormEdit />
       <AccountUser/>
+      <AccountUser/>
+      <AccountUser/>
       </main>
     </div>
     );

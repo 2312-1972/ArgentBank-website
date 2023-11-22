@@ -61,7 +61,8 @@ const CollapseTransac = () => {
           className="account-transaction"
           style={{ background: "#00bc77", padding: "1rem" }}
         >
-          {/* on ajoute  ici les  les informations */}
+          
+        <div style={{display:'flex', flexDirection:'column'}} >
           <div style={{ display: "flex", marginBottom: "1rem" }}>
             <div>
               <h3 className="account-title-user">Transaction type </h3>
@@ -73,8 +74,35 @@ const CollapseTransac = () => {
               >
                 Electronic
               </h3>
-            </div>
+             </div>
           </div>
+          <div style={{ display: "flex", marginBottom: "1rem" }}>
+            <div>
+              <h3 className="account-title-user">Catégory </h3>
+            </div>
+            <div>
+              <h3
+                className="account-title-user"
+                style={{ marginLeft: "200px" }}
+              >
+                Food &nbsp; <FontAwesomeIcon icon="fa-solid fa-pencil" />
+              </h3>
+             </div>
+          </div>
+          <div style={{ display: "flex", marginBottom: "1rem" }}>
+            <div>
+              <h3 className="account-title-user">Note </h3>
+            </div>
+            <div>
+              <h3
+                className="account-title-user"
+                style={{ marginLeft: "230px" }}
+              >
+                Ô loup Thau quai ! &nbsp; <FontAwesomeIcon icon="fa-solid fa-pencil" />
+              </h3>
+             </div>
+          </div>
+          </div> 
         </div>
       )}
     </div>

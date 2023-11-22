@@ -1,8 +1,8 @@
 // User.js
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { getUser } from '../actions/user.action';
-import {Link} from 'react-router-dom';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { getUser } from "../actions/user.action";
+import { Link } from "react-router-dom";
 
 const User = ({ isAuthenticated, user, getUser }) => {
   useEffect(() => {
@@ -16,9 +16,13 @@ const User = ({ isAuthenticated, user, getUser }) => {
       {isAuthenticated ? (
         <div>
           <div className="header">
-            <h1>Welcome back<br />{user ? `${user.firstName} ${user.lastName}` : 'User'}!</h1>
+            <h1>
+              Welcome back
+              <br />
+              {user ? `${user.firstName} ${user.lastName}` : "User"}!
+            </h1>
             <Link to="/editUser">
-            <button className="edit-button">Edit Name</button>
+              <button className="edit-button">Edit Name</button>
             </Link>
           </div>
           <h2 className="sr-only">Accounts</h2>
@@ -29,7 +33,12 @@ const User = ({ isAuthenticated, user, getUser }) => {
               <p className="account-amount-description">Available Balance</p>
             </div>
             <div className="account-content-wrapper cta">
-              <button className="transaction-button">View transactions</button>
+              <Link to="/checkTransac" style={{ textDecoration: "none" }}>
+                {" "}
+                <button className="transaction-button">
+                  View transactions
+                </button>{" "}
+              </Link>
             </div>
           </section>
           <section className="account">
@@ -39,7 +48,12 @@ const User = ({ isAuthenticated, user, getUser }) => {
               <p className="account-amount-description">Available Balance</p>
             </div>
             <div className="account-content-wrapper cta">
-              <button className="transaction-button">View transactions</button>
+              <Link to="/checkTransac" style={{ textDecoration: "none" }}>
+                {" "}
+                <button className="transaction-button">
+                  View transactions
+                </button>{" "}
+              </Link>
             </div>
           </section>
           <section className="account">
@@ -49,7 +63,12 @@ const User = ({ isAuthenticated, user, getUser }) => {
               <p className="account-amount-description">Current Balance</p>
             </div>
             <div className="account-content-wrapper cta">
-              <button className="transaction-button">View transactions</button>
+              <Link to="/checkTransac" style={{ textDecoration: "none" }}>
+                {" "}
+                <button className="transaction-button">
+                  View transactions
+                </button>{" "}
+              </Link>
             </div>
           </section>
         </div>

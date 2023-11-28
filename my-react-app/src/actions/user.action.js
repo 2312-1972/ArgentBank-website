@@ -73,7 +73,7 @@ export const signOut = () => {
     // Réinitialise l'état de l'utilisateur et du token
     dispatch({ type: SIGN_OUT_SUCCESS });
 
-    // Ajoute d'autres actions de nettoyage si nécessaire
+    
 
     //  réinitialise les données de l'utilisateur dans le store
     dispatch({ type: GET_USER_FAILURE, payload: { error: null } });

@@ -4,11 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
-import {
-  selectIsConnected,
-  selectUserFirstName,
-  selectUserLastname,
-} from "../store/selectors";
+import { selectIsConnected, selectUser } from "../store/selectors";
 import { useDispatch } from "react-redux";
 import { signOut } from "../actions/user.action";
 
@@ -16,8 +12,8 @@ library.add(fas);
 
 const HeaderEdit = () => {
   const isConnected = useSelector(selectIsConnected);
-  const userFirstName = useSelector(selectUserFirstName);
-  const userLastName = useSelector(selectUserLastname);
+  const userUserName = useSelector(selectUser);
+
   const dispatch = useDispatch();
 
   const handleSignOut = () => {
@@ -58,7 +54,7 @@ const HeaderEdit = () => {
                 textDecoration: "none",
               }}
             >
-              {`${userFirstName} - ${userLastName}`}{" "}
+              {userUserName}
             </span>
             &nbsp;&nbsp;
             <Link to="/user" className="main-nav-item">

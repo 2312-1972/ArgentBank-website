@@ -20,7 +20,7 @@ const User = ({ isAuthenticated, user, getUser }) => {
             <h1>
               Welcome back
               <br />
-              {user ? `${user.firstName} ${user.lastName}` : "User"}!
+              {user ? `${user.firstName} ${user.userName}` : "User"}!
             </h1>
             <Link to="/editUser">
               <button className="edit-button">Edit Name</button>

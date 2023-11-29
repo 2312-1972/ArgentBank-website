@@ -15,8 +15,9 @@ const AccountUser = () => {
           <p className="account-white-descritption">Available Balance</p>
         </div>
         <div className="account-content-wrapper cta">
-          <Link to="/checkTransac">
-            <FontAwesomeIcon
+         {/* /checkTransac   est la route qui mène à  la maquette  des transactions pour visualisation */}
+          <Link to="#">       
+           <FontAwesomeIcon
               icon="fa-solid fa-chevron-right"
               style={{ color: "white", fontSize: "50px" }}
             />

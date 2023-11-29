@@ -1,3 +1,5 @@
+// FormEdit.js
+
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUser } from "../actions/user.action";
@@ -6,6 +8,7 @@ import {
   selectUserLastname,
   selectUser,
 } from "../store/selectors";
+import { updateUsernameSuccess } from "../actions/user.action";
 
 const FormEdit = () => {
   const userName = useSelector(selectUser);
@@ -18,11 +21,12 @@ const FormEdit = () => {
   const handleSave = () => {
     console.log("Saving username:", editedUserName);
     // Dispatch l'action updateUser avec les nouvelles données
-    // Dispatch une action pour mettre à jour le nom d'utilisateur dans le Redux
     dispatch(updateUser({ userName: editedUserName }))
       .then(() => {
         // Mise à jour réussie, ajuste l'état local pour refléter le nom d'utilisateur actuel
         setEditedUserName(editedUserName);
+        // Dispatch une action supplémentaire pour mettre à jour le nom d'utilisateur dans le Redux store
+        dispatch(updateUsernameSuccess(editedUserName));
         console.log("Username updated successfully");
       })
       .catch((error) => {
@@ -57,7 +61,7 @@ const FormEdit = () => {
                 backgroundColor: "#ffffff",
                 border: "1px solid #999",
                 padding: "5px",
-                width:"120px",
+                width: "120px",
               }}
             />
           </div>
@@ -71,7 +75,7 @@ const FormEdit = () => {
                 backgroundColor: "#f2f2f2",
                 border: "1px solid #999",
                 padding: "5px",
-                width:"120px",
+                width: "120px",
               }}
               readOnly
             />
@@ -86,7 +90,7 @@ const FormEdit = () => {
                 backgroundColor: "#f2f2f2",
                 border: "1px solid #999",
                 padding: "5px",
-                width:"120px",
+                width: "120px",
               }}
               readOnly
             />

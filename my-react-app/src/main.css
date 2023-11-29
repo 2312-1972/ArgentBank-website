@@ -184,7 +184,6 @@ body {
   justify-content: center;
   gap: 10px;
   width: 240px;
-  
 }
 
 .sign-in-content {
@@ -194,7 +193,6 @@ body {
   margin: 0 auto;
   margin-top: 3rem;
   padding: 2rem;
-  
 }
 
 .sign-in-icon {
@@ -311,7 +309,6 @@ body {
   display: flex;
   margin: 10px;
   width: 240px;
-  
 }
 .edit-button {
   border-color: #00bc77;
@@ -350,14 +347,10 @@ body {
   .transaction-button {
     width: 200px;
   }
-
-  
 }
 
-@media  (max-width: 350px
-  
- ) {
-  .header-350{
-  flex-direction: column;
+@media (max-width: 350px) {
+  .header-350 {
+    flex-direction: column;
   }
 }

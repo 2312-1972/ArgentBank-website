@@ -6,10 +6,10 @@ export const SIGN_IN_FAILURE = "SIGN_IN_FAILURE";
 export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
 export const GET_USER_FAILURE = "GET_USER_FAILURE";
 export const STORE_TOKEN = "STORE_TOKEN";
-export const SIGN_OUT_SUCCESS = "SIGN_OUT_SUCCESS"; 
+export const SIGN_OUT_SUCCESS = "SIGN_OUT_SUCCESS";
 export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
 export const UPDATE_USER_FAILURE = "UPDATE_USER_FAILURE";
-
+export const UPDATE_USERNAME_SUCCESS = "UPDATE_USERNAME_SUCCESS";
 
 export const postUser = (userData) => {
   return async (dispatch) => {
@@ -21,8 +21,11 @@ export const postUser = (userData) => {
       if (res.data) {
         console.log("Connexion réussie");
         dispatch({ type: SIGN_IN_SUCCESS, payload: { user: res.data } });
-        // Attendre que SIGN_IN_SUCCESS soit terminé avant de dispatch STORE_TOKEN
-        dispatch({ type: STORE_TOKEN, payload: { token: res.data.body.token } });
+        // Attend que SIGN_IN_SUCCESS soit terminé avant de dispatch STORE_TOKEN
+        dispatch({
+          type: STORE_TOKEN,
+          payload: { token: res.data.body.token },
+        });
         console.log("Token:", res.data.body.token);
       } else {
         dispatch({
@@ -66,15 +69,10 @@ export const getUser = () => {
   };
 };
 
-
-
 export const signOut = () => {
   return (dispatch) => {
     // Réinitialise l'état de l'utilisateur et du token
     dispatch({ type: SIGN_OUT_SUCCESS });
-
-    
-
     //  réinitialise les données de l'utilisateur dans le store
     dispatch({ type: GET_USER_FAILURE, payload: { error: null } });
   };
@@ -97,7 +95,10 @@ export const updateUser = (userData) => {
       );
 
       if (res.data) {
-        dispatch({ type: UPDATE_USER_SUCCESS, payload: { user: res.data.body } });
+        dispatch({
+          type: UPDATE_USER_SUCCESS,
+          payload: { user: res.data.body },
+        });
       } else {
         dispatch({
           type: UPDATE_USER_FAILURE,
@@ -105,7 +106,14 @@ export const updateUser = (userData) => {
         });
       }
     } catch (error) {
-      dispatch({ type: UPDATE_USER_FAILURE, payload: { error: error.message } });
+      dispatch({
+        type: UPDATE_USER_FAILURE,
+        payload: { error: error.message },
+      });
     }
   };
 };
+export const updateUsernameSuccess = (newUsername) => ({
+  type: UPDATE_USERNAME_SUCCESS,
+  payload: { newUsername },
+});

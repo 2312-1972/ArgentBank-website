@@ -11,7 +11,7 @@ const AccountSection = ({ title, accountNumber, amount, description }) => {
         <p className="account-amount-description">{description}</p>
       </div>
       <div className="account-content-wrapper cta">
-        <Link to="/checkTransac" style={{ textDecoration: "none" }}>
+        <Link to="#" style={{ textDecoration: "none" }}>
           <button className="transaction-button">View transactions</button>
         </Link>
       </div>

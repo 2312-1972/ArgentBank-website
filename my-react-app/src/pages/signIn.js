@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'; // Utilisation de useNavigate
 const SignIn = ({ postUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState(''); // Nouvel état pour le message d'erreur
   const navigate = useNavigate(); // Utilisation de useNavigate pour la navigation
 
   const setEmailHandler = (e) => {
@@ -34,7 +35,7 @@ const SignIn = ({ postUser }) => {
       postUser({ email, password });
       navigate('/user'); // Utilisation de navigate pour la redirection
     } else {
-      console.error('Informations de connexion invalides');
+      setErrorMessage('Informations de connexion invalides'); // Mise à jour du message d'erreur
     }
   };
 
@@ -43,6 +44,7 @@ const SignIn = ({ postUser }) => {
       <section className="sign-in-content">
         <FontAwesomeIcon icon="circle-user" />
         <h1>Sign In</h1>
+        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* Affichage du message d'erreur */}
         <form onSubmit={handleSignIn}>
           <div className="input-wrapper">
             <label htmlFor="email">Email</label>

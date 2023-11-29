@@ -42,7 +42,7 @@ const FormEdit = () => {
   };
 
   return (
-    <div>
+    <div className="form-edit">
       <h1>Edit user info </h1>
       <form className="sign-in-content">
         <div className="input-wrapper">
@@ -57,6 +57,7 @@ const FormEdit = () => {
                 backgroundColor: "#ffffff",
                 border: "1px solid #999",
                 padding: "5px",
+                width:"120px",
               }}
             />
           </div>
@@ -70,6 +71,7 @@ const FormEdit = () => {
                 backgroundColor: "#f2f2f2",
                 border: "1px solid #999",
                 padding: "5px",
+                width:"120px",
               }}
               readOnly
             />
@@ -84,6 +86,7 @@ const FormEdit = () => {
                 backgroundColor: "#f2f2f2",
                 border: "1px solid #999",
                 padding: "5px",
+                width:"120px",
               }}
               readOnly
             />

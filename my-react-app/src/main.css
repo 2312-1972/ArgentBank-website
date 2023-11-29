@@ -177,14 +177,15 @@ body {
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
-  border-radius:5px;
+  border-radius: 5px;
 }
-.save-and-cancel{
+.save-and-cancel {
   display: flex;
-  gap:10px;
-  width: 360px;
+  justify-content: center;
+  gap: 10px;
+  width: 240px;
+  
 }
-
 
 .sign-in-content {
   box-sizing: border-box;
@@ -193,6 +194,7 @@ body {
   margin: 0 auto;
   margin-top: 3rem;
   padding: 2rem;
+  
 }
 
 .sign-in-icon {
@@ -249,9 +251,9 @@ body {
   text-align: left;
   margin-bottom: 2rem;
 }
-.account-transaction{
+.account-transaction {
   display: flex;
-   justify-content: space-between;
+  justify-content: space-between;
   align-items: center;
   border-radius: 5px;
   background-color: black;
@@ -269,7 +271,7 @@ body {
   font-weight: bold;
 }
 
-.account-white{
+.account-white {
   margin: 0;
   font-size: 2.5rem;
   font-weight: bold;
@@ -280,7 +282,7 @@ body {
   margin: 0;
 }
 
-.account-white-descritption{
+.account-white-descritption {
   margin: 0;
   color: #fff;
 }
@@ -292,12 +294,12 @@ body {
   font-weight: normal;
 }
 
-.account-title-user{
-color: #fff;
-margin: 0;
-padding: 0;
-font-size: 1rem;
-font-weight: normal;
+.account-title-user {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: normal;
 }
 
 .account-content-wrapper {
@@ -305,11 +307,11 @@ font-weight: normal;
   flex: 1;
 }
 
-.form-user{
+.form-user {
   display: flex;
   margin: 10px;
-  width: 350px;
-  padding-right: 50px;
+  width: 240px;
+  
 }
 .edit-button {
   border-color: #00bc77;
@@ -347,5 +349,15 @@ font-weight: normal;
 
   .transaction-button {
     width: 200px;
+  }
+
+  
+}
+
+@media  (max-width: 350px
+  
+ ) {
+  .header-350{
+  flex-direction: column;
   }
 }

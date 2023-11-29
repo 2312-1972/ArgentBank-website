@@ -72,7 +72,7 @@ paths:
       tags:
         - Transactions Module
       summary: Update information of a specific transaction
-      description: Update details of a specific transaction
+      description: Update details of a specific transaction (only 'Category' and 'Note' can be modified)
       security:
         - Bearer: []
       parameters:
@@ -109,7 +109,7 @@ paths:
       tags:
         - Transactions Module
       summary: Delete a specific transaction
-      description: Delete a specific transaction (Cette opération n'est pas autorisée dans cette application)
+      description: Delete a specific transaction (This operation is not allowed in this application/Cette opération n'est pas autorisée dans cette application)
       security:
         - Bearer: []
       parameters:
@@ -175,19 +175,16 @@ definitions:
   UpdateTransaction:
     type: object
     properties:
-      date:
+      category:
         type: string
-        format: date
-        description: Updated date of the transaction
-      description:
+        description: Updated category of the transaction
+      note:
         type: string
-        description: Updated description of the transaction
-      amount:
-        type: number
-        description: Updated amount of the transaction
-      balance:
-        type: number
-        description: Updated balance after the transaction
+        description: Updated note for the transaction
+    required:
+      - category
+      - note
+    additionalProperties: false
 
   ApiResponse:
     type: object

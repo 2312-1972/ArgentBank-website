@@ -31,7 +31,7 @@ const Header = () => {
 
   return (
     <nav className="main-nav">
-      <Link to="/" className="main-nav-logo">
+      <Link to="/" className="main-nav-logo" onClick={handleSignOut}>
         <img
           className="main-nav-logo-image"
           src={argentBankLogo}

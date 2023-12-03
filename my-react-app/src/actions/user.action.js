@@ -11,7 +11,7 @@ export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
 export const UPDATE_USER_FAILURE = "UPDATE_USER_FAILURE";
 export const UPDATE_USERNAME_SUCCESS = "UPDATE_USERNAME_SUCCESS";
 
-export const postUser = (userData) => {
+export const loginUser = (userData) => {
   return async (dispatch) => {
     try {
       const res = await axios.post(

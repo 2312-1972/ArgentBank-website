@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from 'react-redux';
-import { postUser } from "../actions/user.action";
-import { useNavigate } from 'react-router-dom'; // Utilisation de useNavigate
+import { loginUser } from "../actions/user.action";
+import { useNavigate } from 'react-router-dom';
 
-const SignIn = ({ postUser }) => {
+const SignIn = ({ loginUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState(''); // Nouvel état pour le message d'erreur
-  const navigate = useNavigate(); // Utilisation de useNavigate pour la navigation
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
   const setEmailHandler = (e) => {
     setEmail(e.target.value);
@@ -18,24 +18,14 @@ const SignIn = ({ postUser }) => {
     setPassword(e.target.value);
   };
 
-  const handleSignIn = (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
 
-    const validUser1 = {
-      email: 'tony@stark.com',
-      password: 'password123',
-    };
-
-    const validUser2 = {
-      email: 'steve@rogers.com',
-      password: 'password456',
-    };
-
-    if ((email === validUser1.email && password === validUser1.password) || (email === validUser2.email && password === validUser2.password)) {
-      postUser({ email, password });
-      navigate('/user'); // Utilisation de navigate pour la redirection
-    } else {
-      setErrorMessage('Informations de connexion invalides'); // Mise à jour du message d'erreur
+    try {
+      await loginUser({ email, password });
+      navigate('/user');
+    } catch (error) {
+      setErrorMessage('Informations de connexion invalides');
     }
   };
 
@@ -44,7 +34,7 @@ const SignIn = ({ postUser }) => {
       <section className="sign-in-content">
         <FontAwesomeIcon icon="circle-user" />
         <h1>Sign In</h1>
-        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* Affichage du message d'erreur */}
+        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
         <form onSubmit={handleSignIn}>
           <div className="input-wrapper">
             <label htmlFor="email">Email</label>
@@ -77,7 +67,7 @@ const SignIn = ({ postUser }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    postUser: (userData) => dispatch(postUser(userData)),
+    loginUser: (userData) => dispatch(loginUser(userData)),
   };
 };
 

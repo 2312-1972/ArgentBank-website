@@ -2,8 +2,8 @@ swagger: '2.0'
 info:
   title: Bank Argent API documentation
   description: Contains all available API endpoints in this codebase
-  version: '1.0.0'
-  termsOfService: 'http://swagger.io/terms/'
+  version: 1.0.0
+  termsOfService: http://swagger.io/terms/
 host: localhost:3001
 basePath: /api/v1
 schemes:
@@ -19,7 +19,9 @@ paths:
       tags:
         - Transactions Module
       summary: Get all transactions for the current month, grouped by account
-      description: Retrieve a list of transactions for the current month, grouped by account
+      description: >-
+        Retrieve a list of transactions for the current month, grouped by
+        account
       security:
         - Bearer: []
       produces:
@@ -37,7 +39,6 @@ paths:
           description: Forbidden - User does not have permission
         '500':
           description: Internal Server Error
-
   /transactions/{transactionId}:
     get:
       tags:
@@ -67,12 +68,13 @@ paths:
           description: Transaction not found
         '500':
           description: Internal Server Error
-
     put:
       tags:
         - Transactions Module
       summary: Update information of a specific transaction
-      description: Update details of a specific transaction (only 'Category' and 'Note' can be modified)
+      description: >-
+        Update details of a specific transaction (only 'Category' and 'Note' can
+        be modified)
       security:
         - Bearer: []
       parameters:
@@ -104,40 +106,11 @@ paths:
           description: Transaction not found
         '500':
           description: Internal Server Error
-
-    delete:
-      tags:
-        - Transactions Module
-      summary: Delete a specific transaction
-      description: Delete a specific transaction (This operation is not allowed in this application/Cette opération n'est pas autorisée dans cette application)
-      security:
-        - Bearer: []
-      parameters:
-        - name: transactionId
-          in: path
-          description: ID of the transaction to delete
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        '405':
-          description: Method Not Allowed - Deleting transactions is not allowed
-        '401':
-          description: Unauthorized - Token is missing or invalid
-        '403':
-          description: Forbidden - User does not have permission
-        '404':
-          description: Transaction not found
-        '500':
-          description: Internal Server Error
-
 definitions:
   TransactionList:
     type: array
     items:
       $ref: '#/definitions/TransactionGroupByAccount'
-
   TransactionGroupByAccount:
     type: object
     properties:
@@ -148,7 +121,6 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Transaction'
-
   Transaction:
     type: object
     properties:
@@ -168,10 +140,8 @@ definitions:
       balance:
         type: number
         description: Balance after the transaction
-
   TransactionDetails:
     $ref: '#/definitions/Transaction'
-  
   UpdateTransaction:
     type: object
     properties:
@@ -185,7 +155,6 @@ definitions:
       - category
       - note
     additionalProperties: false
-
   ApiResponse:
     type: object
     properties:

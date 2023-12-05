@@ -186,6 +186,12 @@ body {
   width: 240px;
 }
 
+.confirmation-message {
+  color: #00bc77;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
 .sign-in-content {
   box-sizing: border-box;
   background-color: white;

@@ -1,5 +1,3 @@
-// FormEdit.js
-
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUser } from "../actions/user.action";
@@ -17,6 +15,7 @@ const FormEdit = () => {
   const dispatch = useDispatch();
 
   const [editedUserName, setEditedUserName] = useState(userName);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   const handleSave = () => {
     console.log("Saving username:", editedUserName);
@@ -28,6 +27,12 @@ const FormEdit = () => {
         // Dispatch une action supplémentaire pour mettre à jour le nom d'utilisateur dans le Redux store
         dispatch(updateUsernameSuccess(editedUserName));
         console.log("Username updated successfully");
+        // Affiche le message de confirmation
+        setShowConfirmation(true);
+        // Masque le message de confirmation après quelques secondes (par exemple, 3 secondes)
+        setTimeout(() => {
+          setShowConfirmation(false);
+        }, 3000);
       })
       .catch((error) => {
         console.error("Failed to update username:", error);
@@ -96,6 +101,9 @@ const FormEdit = () => {
             />
           </div>
         </div>
+        {showConfirmation && (
+          <div className="confirmation-message">Username updated successfully!</div>
+        )}
         <div className="save-and-cancel">
           <button
             type="button"

@@ -29,7 +29,7 @@ const FormEdit = () => {
         console.log("Username updated successfully");
         // Affiche le message de confirmation
         setShowConfirmation(true);
-        // Masque le message de confirmation après quelques secondes (par exemple, 3 secondes)
+        // Masque le message de confirmation après 3 secondes
         setTimeout(() => {
           setShowConfirmation(false);
         }, 3000);
@@ -102,7 +102,9 @@ const FormEdit = () => {
           </div>
         </div>
         {showConfirmation && (
-          <div className="confirmation-message">Username updated successfully!</div>
+          <div className="confirmation-message">
+            Username updated successfully!
+          </div>
         )}
         <div className="save-and-cancel">
           <button

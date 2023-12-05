@@ -29,10 +29,10 @@ const FormEdit = () => {
         console.log("Username updated successfully");
         // Affiche le message de confirmation
         setShowConfirmation(true);
-        // Masque le message de confirmation après 3 secondes
+        // Masque le message de confirmation après 4 secondes
         setTimeout(() => {
           setShowConfirmation(false);
-        }, 3000);
+        }, 000);
       })
       .catch((error) => {
         console.error("Failed to update username:", error);

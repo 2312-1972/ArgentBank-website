@@ -32,7 +32,7 @@ const FormEdit = () => {
         // Masque le message de confirmation après 4 secondes
         setTimeout(() => {
           setShowConfirmation(false);
-        }, 000);
+        }, 4000);
       })
       .catch((error) => {
         console.error("Failed to update username:", error);

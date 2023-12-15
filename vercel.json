@@ -1,0 +1,11 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "./server/**", "use": "@now/node" }
+    ],
+    "routes": [
+      { "src": "/api/(.*)", "dest": "./server/server.js" },
+      { "src": "/(.*)", "dest": "./client/$1" }
+    ]
+  }
+  

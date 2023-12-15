@@ -1,9 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    { "src": "./server/**", "use": "@vercel/node" },
-    { "src": "./my-react-app/**", "use": "@vercel/static" }
-  ],
+ 
   "routes": [
     { "src": "/api/(.*)", "dest": "./server/server.js" },
     { "src": "/(.*)", "dest": "./my-react-app/$1" }
